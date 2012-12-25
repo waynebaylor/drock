@@ -37,7 +37,9 @@
 |
 */
 
-$autoload['packages'] = array();
+$autoload['packages'] = array(
+	APPPATH.'third_party/PDO_DB/1.0'
+);
 
 
 /*
@@ -52,7 +54,10 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array();
+$autoload['libraries'] = array(
+	'session',
+	'pdo_db'
+);
 
 
 /*

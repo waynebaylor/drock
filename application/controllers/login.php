@@ -6,8 +6,6 @@ class Login extends Transactional_controller
 {
 	public function __construct() {
 		parent::__construct();
-		
-		$this->load->library('session');
 	}
 	
 	public function index() {
