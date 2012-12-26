@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<?php echo $content ?>
+	<?php echo $content ?>
 	
 	<script type="text/javascript" src="<?php echo base_url('assets/jquery/1.8.3/jquery-1.8.3.min.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/bootstrap/2.2.1/js/bootstrap.min.js') ?>"></script>
