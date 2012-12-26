@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap/2.2.1/css/bootstrap.css') ?>">
 	<link rel="stylesheet/less" type="text/css" href="<?php echo base_url('css/drock.less') ?>">
 	
-	<script type="text/javascript" src="<?php echo base_url('assets/less/less-1.3.1.min.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/less/1.3.1/less-1.3.1.min.js') ?>"></script>
 </head>
 <body>
 
