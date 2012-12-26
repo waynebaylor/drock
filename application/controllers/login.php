@@ -1,7 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once APPPATH.'controllers/transactional_controller.php';
-
 class Login extends Transactional_controller
 {
 	public function __construct() {
