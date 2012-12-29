@@ -2,6 +2,7 @@
 <style type="text/css">
 
 form {
+	width: 300px;
 	margin: 30px auto;
 }
 
