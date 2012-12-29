@@ -1,8 +1,8 @@
 
-<form method="post" action="">
+<form method="post" action="<?php echo base_url('login') ?>">
 	<div class="container">
 		<div class="row">
-			<div class="offset4 span2">
+			<div class="span6">
 				<h1>D-ROCK</h1>
 				<h4>Crush it!</h4>
 			</div>
