@@ -1,20 +1,24 @@
 
-<form method="post" action="<?php echo base_url('login') ?>">
-	<div class="container">
-		<div class="row">
-			<div class="span6">
-				<h1>D-ROCK</h1>
-				<h4>Crush it!</h4>
-			</div>
-			<div class="span6">
-				<input type="text" class="input-block-level" placeholder="Username" name="username" value="">
-				<input type="password" class="input-block-level" placeholder="Password" name="password" value="">
-			</div>
-		</div>
-		<div class="row">
-			<div class="offset6 span6">
-				<button type="submit" class="btn">Login</button>
-			</div>
-		</div>
-	</div>
-</form>
+<style type="text/css">
+
+form {
+	margin: 30px auto;
+}
+
+input {
+	width: 300px;
+}
+	
+</style>
+
+<div class="container">
+	<form method="post" action="<?php echo base_url('login') ?>">
+		<h1>D-ROCK</h1>
+		<h4>Crush it!</h4>
+
+		<input type="text" class="input-block-level" placeholder="Username" name="username" value="">
+		<input type="password" class="input-block-level" placeholder="Password" name="password" value="">
+
+		<button type="submit" class="btn">Login</button>
+	</form>
+</div>
