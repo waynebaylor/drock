@@ -5,6 +5,7 @@
  * can extend or override any general settings.
  */
 
+
 $config['encryption_key'] = 'drock_enc_key';
 
 $config['sess_cookie_name']		= 'drock';

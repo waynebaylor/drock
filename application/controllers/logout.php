@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends Auth_controller
+class Logout extends CI_Controller
 {
 	public function __construct() {
 		parent::__construct();
 	}
 	
 	public function index() {
-		$session_user = $this->session->userdata('user');
-
-		$this->load->view('welcome_view', array('user' => $session_user));
+		$this->session->sess_destroy();
+		
+		redirect('login');
 	}
 }
