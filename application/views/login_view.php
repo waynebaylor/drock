@@ -1,7 +1,13 @@
 
 <style type="text/css">
 
+body {
+	background-color: #002b36;
+}
+
 form {
+	background-color: #fff;
+	border: 1px solid #073642;
 	width: 300px;
 	margin: 30px auto;
 }
