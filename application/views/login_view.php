@@ -2,12 +2,13 @@
 <style type="text/css">
 
 body {
-	background-color: #002b36;
+	background-color: #fdf6e3;
 }
 
 form {
 	background-color: #fff;
-	border: 1px solid #073642;
+	border: 1px solid #eee8d5;
+	border-radius: 4px;
 	width: 300px;
 	margin: 30px auto;
 }
