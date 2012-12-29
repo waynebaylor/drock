@@ -10,7 +10,8 @@ form {
 	border: 1px solid #eee8d5;
 	border-radius: 4px;
 	width: 300px;
-	margin: 30px auto;
+	margin: 100px auto;
+	padding: 30px;
 }
 
 input {
@@ -21,8 +22,7 @@ input {
 
 <div class="container">
 	<form method="post" action="<?php echo base_url('login') ?>">
-		<h1>D-ROCK</h1>
-		<h4>Crush it!</h4>
+		<h1>D-ROCK <span style="color:#eee;">Crush it!</span></h1>
 
 		<input type="text" class="input-block-level" placeholder="Username" name="username" value="">
 		<input type="password" class="input-block-level" placeholder="Password" name="password" value="">
