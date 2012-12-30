@@ -48,7 +48,7 @@ if(!function_exists('bs_text')) {
 }
 
 if(!function_exists('bs_password')) {
-	function bs_password($name, $label, $value = NULL) {
+	function bs_password($params) {
 		$params['type'] = 'password';
 		return bs_input($params);
 	}
