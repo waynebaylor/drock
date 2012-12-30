@@ -7,8 +7,14 @@
 			<div class="alert alert-error"><?php echo $error_msg ?></div>
 		<?php endforeach; ?>
 		
-		<?php echo bs_text('username', 'Username') ?>
-		<?php echo bs_password('password', 'Password') ?>
+		<?php echo bs_text(array(
+			'name' => 'username', 
+			'label' => 'Username'
+		)) ?>
+		<?php echo bs_password(array(
+			'name' => 'password', 
+			'label' => 'Password'
+		)) ?>
 		
 		<div class="form-actions">
 			<button type="submit" class="btn">Create</button>
