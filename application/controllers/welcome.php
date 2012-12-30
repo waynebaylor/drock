@@ -7,8 +7,16 @@ class Welcome extends Auth_controller
 	}
 	
 	public function index() {
-		$session_user = $this->session->userdata('user');
-
-		$this->load->view('welcome_view', array('user' => $session_user));
+		$user = $this->session->userdata('user');
+		unset($user['password']);
+		
+		$content = $this->load->view('welcome_view', array(
+			'user' => $user
+		), TRUE);
+			
+		$this->load->view('base_user_view', array(
+			'title' => 'D-Rock Home',
+			'content' => $content
+		));
 	}
 }

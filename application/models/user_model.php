@@ -7,10 +7,38 @@ class User_model extends CI_Model
 	}
 	
 	public function find_by_username($username) {
-		return array(
-			'id' => 1,
-			'username' => 'wade',
-			'password' => 'wade'
-		);
+		$sql = '
+			SELECT 
+				id,
+				username,
+				password
+			FROM
+				User
+			WHERE
+				username = :username
+		';
+		
+		return $this->pdo_db->first($sql, array('username' => $username));
+	}
+	
+	/**
+	 * @param array $params (username, password)
+	 */
+	public function insert($params) {
+		$sql = '
+			INSERT INTO
+				User (
+					username,
+					password
+				)
+			VALUES (
+				:username,
+				:password
+			)
+		';
+		
+		$this->pdo_db->execute($sql, $params);
+		
+		return $this->pdo_db->last_insert_id();
 	}
 }

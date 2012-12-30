@@ -6,7 +6,7 @@ class Login extends Transactional_controller
 		parent::__construct();
 		
 		$this->load->library('phpass');
-		$this->pw_hasher = $this->phpass->new_instance(13);
+		$this->pw_hasher = $this->phpass->new_instance();
 		
 		$this->load->model('user_model');
 	}

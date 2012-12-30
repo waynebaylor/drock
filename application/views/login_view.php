@@ -2,20 +2,8 @@
 <style type="text/css">
 
 form {
-	background-color: #fff;
-	border: 1px solid #eee8d5;
-	border-radius: 4px;
 	width: 350px;
 	margin: 100px auto;
-	padding: 30px;
-}
-
-input {
-	width: 300px;
-}
-
-.form-actions {
-	background-color: inherit;
 }
 
 h1 {
@@ -35,7 +23,7 @@ h1 {
 		<div class="control-group <?php if(form_error('username')) echo 'error' ?>">
 			<div class="control-label"></div>
 			<div class="controls">
-				<input type="text" placeholder="Username" name="username" value="<?php echo set_value('username') ?>">
+				<input type="text" class="input-block-level" placeholder="Username" name="username" value="<?php echo set_value('username') ?>">
 				<?php echo form_error('username') ?>
 			</div>
 		</div>
@@ -43,12 +31,13 @@ h1 {
 		<div class="control-group <?php if(form_error('password')) echo 'error' ?>">
 			<div class="control-label"></div>
 			<div class="controls">
-				<input type="password" placeholder="Password" name="password" value="">
+				<input type="password" class="input-block-level" placeholder="Password" name="password" value="">
 				<?php echo form_error('password') ?>
 			</div>
 		</div>
 		<div class="form-actions">
 			<button type="submit" class="btn">Login</button>
+			<a class="pull-right" href="<?php echo base_url('account/create') ?>">Create Account</a>
 		</div>
 	</form>
 </div>
