@@ -22,7 +22,7 @@ class User_model extends CI_Model
 	}
 	
 	/**
-	 * @param array $params (username, password)
+	 * @param array $params [username, password]
 	 */
 	public function insert($params) {
 		$sql = '

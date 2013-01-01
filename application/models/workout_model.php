@@ -7,7 +7,7 @@ class Workout_model extends CI_Model
 	}
 	
 	/**
-	 * @param array $user (id)
+	 * @param array $user [id]
 	 */
 	public function find_by_user($user) {
 		$sql = '
@@ -15,8 +15,8 @@ class Workout_model extends CI_Model
 				id,
 				user_id,
 				name,
-				reps,
 				sets,
+				reps,
 				weight,
 				tmstmp
 			FROM
@@ -33,4 +33,32 @@ class Workout_model extends CI_Model
 		
 		return $this->pdo_db->query_iterator($sql, $params);
 	}
+	
+	/**
+	 * @param array $params [user_id, name, sets, reps, weight, tmstmp]
+	 */
+	public function insert($params) {
+		$sql = '
+			INSERT INTO
+				Workout (
+					user_id,
+					name,
+					sets,
+					reps,
+					weight,
+					tmstmp
+				)
+			VALUES (
+				:user_id,
+				:name,
+				:sets,
+				:reps,
+				:weight,
+				:tmstmp
+			)
+		';
+		
+		return $this->pdo_db->execute($sql, $params);
+	}
 }
+

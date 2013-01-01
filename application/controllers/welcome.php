@@ -12,11 +12,11 @@ class Welcome extends Auth_controller
 		$user = $this->session->userdata('user');
 		unset($user['password']);
 		
-		$workouts = $this->workout_model->find_by_user($user);
-		
+		$workouts_iter = $this->workout_model->find_by_user($user);
+	
 		$content = $this->load->view('welcome_view', array(
 			'user' => $user,
-			'workouts' => $workouts
+			'workouts_iter' => $workouts_iter
 		), TRUE);
 			
 		$this->load->view('base_user_view', array(
