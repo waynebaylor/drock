@@ -1,4 +1,30 @@
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		var $nameInput = $("input[name='name']");
+		$nameInput.select2({
+			width: "element",
+			initSelection: function(element, callback) {
+				callback({id: $(element).val(), text: $(element).val()});
+			},
+			query: function(query) {
+				var data = {results: []};
+
+				if(query.term) {
+					data.results.push({id: query.term, text: query.term});
+					$nameInput.select2('val', query.term);
+				}
+				
+				<?php foreach($workout_names as $r): ?>
+					data.results.push({id: '<?php echo $r['name'] ?>', text: '<?php echo $r['name'] ?>'});
+				<?php endforeach; ?>
+
+				query.callback(data);
+			}
+		});
+	});
+</script>
+
 <div class="container">
 	<form method="post" action="<?php echo base_url('workout/save') ?>">
 		<legend>Edit Workout</legend>

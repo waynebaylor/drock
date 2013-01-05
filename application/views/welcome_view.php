@@ -16,6 +16,30 @@
 			});
 		});
 	});
+
+	$(document).ready(function() {
+		var $nameInput = $("input[name='name']");
+		$nameInput.select2({
+			width: "element",
+			initSelection: function(element, callback) {
+				callback({id: $(element).val(), text: $(element).val()});
+			},
+			query: function(query) {
+				var data = {results: []};
+
+				if(query.term) {
+					data.results.push({id: query.term, text: query.term});
+					$nameInput.select2('val', query.term);
+				}
+				
+				<?php foreach($workout_names as $r): ?>
+					data.results.push({id: '<?php echo $r['name'] ?>', text: '<?php echo $r['name'] ?>'});
+				<?php endforeach; ?>
+
+				query.callback(data);
+			}
+		});
+	});
 </script>
 
 <div class="container">
@@ -38,7 +62,7 @@
 		</p>
 		
 		<div id="new-workout-form" style="display:none;">
-			<input type="text" class="span2" placeholder="Name" name="name" value="">
+			<input type="text" class="name-dropdown" placeholder="Name" name="name" value="">
 			<input type="text" class="span2" placeholder="Sets" name="sets" value="">
 			<input type="text" class="span2" placeholder="Reps" name="reps" value="">
 			<input type="text" class="span2" placeholder="Weight (lbs)" name="weight" value="">

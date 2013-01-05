@@ -56,8 +56,41 @@ if(!function_exists('bs_password')) {
 
 if(!function_exists('bs_hidden')) {
 	function bs_hidden($params) {
+		if(empty($params['label'])) {
+			$value = set_value($params['name'], $params['value']);
+			return "<input type='hidden' name='{$params['name']}' value='{$value}'>";
+		}
+		else {
+			$params['type'] = 'hidden';
+			return bs_input($params);
+		}		
+	}
+}
+
+if(!function_exists('bs_select')) {
+	function bs_select($params) {
+		$html = '';
+		
+		$name = $params['name'];
 		$value = set_value($params['name'], $params['value']);
-		return "<input type='hidden' name='{$params['name']}' value='{$value}'>";		
+		
+		$error_text = form_error($name);
+		$error_class = $error_text? 'error' : '';
+		
+		foreach($params['options'] as $option) {
+			$selected = ($option['value'] == $params['value'])? 'selected="selected"' : '';
+			$html .= "<option value='{$value}' {$selected}>{$option['label']}</option>";
+		}
+		
+		return <<<_
+			<div class="control-group {$error_class}">
+				<div class=\"control-label\">{$params['label']}</div>
+				<div class="controls">
+					<select name='{$name}'>{$html}</select>
+					{$error_text}
+				</div>
+			</div>
+_;
 	}
 }
 

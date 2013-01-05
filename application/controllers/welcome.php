@@ -13,10 +13,12 @@ class Welcome extends Auth_controller
 		unset($user['password']);
 		
 		$workouts_iter = $this->workout_model->find_by_user($user);
-	
+		$workout_names = $this->workout_model->find_names_by_user($user);
+		
 		$content = $this->load->view('welcome_view', array(
 			'user' => $user,
 			'workouts_iter' => $workouts_iter,
+			'workout_names' => $workout_names,
 			'success_message' => $this->session->flashdata('success_message')
 		), TRUE);
 			

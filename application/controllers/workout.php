@@ -70,10 +70,12 @@ class Workout extends Auth_controller
 		$params['user_id'] = $user['id'];
 		
 		$workout = $this->workout_model->find($params);
-
+		$workout_names = $this->workout_model->find_names_by_user($user);
+		
 		$content = $this->load->view('workout_edit_view', array(
 			'user' => $user,
-			'workout' => $workout
+			'workout' => $workout,
+			'workout_names' => $workout_names
 		), TRUE);
 		
 		$this->load->view('base_user_view', array(
