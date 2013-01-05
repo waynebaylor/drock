@@ -18,6 +18,7 @@
 		
 		<div class="form-actions">
 			<button type="submit" class="btn">Create</button>
+			<a href="<?php echo base_url('welcome') ?>">Cancel</a>
 		</div>
 	</form>
 </div>

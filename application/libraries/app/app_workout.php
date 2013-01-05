@@ -41,4 +41,22 @@ class App_workout
 	public function undelete($params) {
 		$this->workout_model->undelete($params);
 	}
+	
+	/**
+	 * @param array $params [user_id, id, name, sets, reps, weight, tmstmp]
+	 */
+	public function save($params) {
+		$format = $this->pdo_db->default_date_format();
+		
+		$params = array_filter($params);
+		$params = array_merge(array(
+			'name' => 'Unnamed Workout',
+			'sets' => 0,
+			'reps' => 0,
+			'weight' => 0,
+			'tmstmp' => date($format)
+		), $params);
+		
+		return $this->workout_model->update($params);
+	}
 }

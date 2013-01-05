@@ -82,7 +82,7 @@ class Workout_model extends CI_Model
 		$this->pdo_db->execute($sql, $params);
 	}
 	
-/**
+	/**
 	 * @param array $params [user_id, id]
 	 */
 	public function undelete($params) {
@@ -91,6 +91,57 @@ class Workout_model extends CI_Model
 				Workout
 			SET
 				status = NULL
+			WHERE
+				user_id = :user_id
+			AND
+				id = :id
+		';
+		
+		$this->pdo_db->execute($sql, $params);
+	}
+	
+	/**
+	 * @param array $params [user_id, id]
+	 */
+	public function find($params) {
+		$sql = '
+			SELECT
+				id,
+				user_id,
+				name,
+				sets,
+				reps,
+				weight,
+				tmstmp,
+				status
+			FROM
+				Workout
+			WHERE
+				user_id = :user_id
+			AND
+				id = :id
+			AND
+				status IS NULL
+			ORDER BY
+				tmstmp DESC
+		';
+		
+		return $this->pdo_db->first($sql, $params);
+	}
+	
+	/**
+	 * @param array $params [user_id, id, name, sets, reps, weight, tmstmp]
+	 */
+	public function update($params) {
+		$sql = '
+			UPDATE
+				Workout
+			SET
+				name = :name,
+				sets = :sets,
+				reps = :reps,
+				weight = :weight,
+				tmstmp = :tmstmp
 			WHERE
 				user_id = :user_id
 			AND

@@ -68,9 +68,9 @@
 						<td><?php echo $workout['sets'] ?></td>
 						<td><?php echo $workout['reps'] ?></td>
 						<td><?php echo $workout['weight'] ?></td>
-						<td><?php echo $workout['tmstmp'] ?></td>
+						<td><?php echo substr($workout['tmstmp'], 0, 10) ?></td>
 						<td>
-							<a href="#">Edit</a>
+							<a href="<?php echo base_url('workout/edit?id='.$workout['id']) ?>">Edit</a>
 							<a href="<?php echo base_url('workout/delete?id='.$workout['id']) ?>">Delete</a>
 						</td>
 					</tr>

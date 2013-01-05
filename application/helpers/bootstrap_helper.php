@@ -53,3 +53,12 @@ if(!function_exists('bs_password')) {
 		return bs_input($params);
 	}
 }
+
+if(!function_exists('bs_hidden')) {
+	function bs_hidden($params) {
+		$value = set_value($params['name'], $params['value']);
+		return "<input type='hidden' name='{$params['name']}' value='{$value}'>";		
+	}
+}
+
+
