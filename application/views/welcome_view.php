@@ -19,6 +19,17 @@
 </script>
 
 <div class="container">
+	<?php if($success_message): ?>
+		<div class="row">
+			<div class="span12">
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<?php echo $success_message ?>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+	
 	<form method="post" action="<?php echo base_url('workout/submit') ?>">
 		<h1>Workouts</h1>
 		
@@ -39,7 +50,7 @@
 			</div>
 		</div>
 		
-		<table class="table table-bordered table-hover">
+		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -60,11 +71,11 @@
 						<td><?php echo $workout['tmstmp'] ?></td>
 						<td>
 							<a href="#">Edit</a>
-							<a href="#">Delete</a>
+							<a href="<?php echo base_url('workout/delete?id='.$workout['id']) ?>">Delete</a>
 						</td>
 					</tr>
 				<?php endforeach; ?>
-				<?php if(empty($index) && $index !== 0): ?>
+				<?php if(empty($index)): ?>
 					<tr>
 						<td colspan="6">No workouts :(</td>
 					</tr>

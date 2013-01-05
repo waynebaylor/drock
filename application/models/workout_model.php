@@ -18,11 +18,14 @@ class Workout_model extends CI_Model
 				sets,
 				reps,
 				weight,
-				tmstmp
+				tmstmp,
+				status
 			FROM
 				Workout
 			WHERE
 				user_id = :user_id
+			AND
+				status IS NULL
 			ORDER BY
 				tmstmp DESC
 		';
@@ -59,6 +62,42 @@ class Workout_model extends CI_Model
 		';
 		
 		return $this->pdo_db->execute($sql, $params);
+	}
+	
+	/**
+	 * @param array $params [user_id, id]
+	 */
+	public function delete($params) {
+		$sql = '
+			UPDATE
+				Workout
+			SET
+				status = "DELETED"
+			WHERE
+				user_id = :user_id
+			AND
+				id = :id
+		';
+		
+		$this->pdo_db->execute($sql, $params);
+	}
+	
+/**
+	 * @param array $params [user_id, id]
+	 */
+	public function undelete($params) {
+		$sql = '
+			UPDATE
+				Workout
+			SET
+				status = NULL
+			WHERE
+				user_id = :user_id
+			AND
+				id = :id
+		';
+		
+		$this->pdo_db->execute($sql, $params);
 	}
 }
 

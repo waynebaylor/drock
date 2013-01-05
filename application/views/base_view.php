@@ -17,7 +17,16 @@
 	<script type="text/javascript" src="<?php echo base_url('assets/bootstrap/2.2.1/js/bootstrap.min.js') ?>"></script>
 </head>
 <body>
-
-	<?php echo $content ?>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="<?php echo base_url('welcome') ?>">D-Rock</a>
+			</div>
+		</div>
+	</div>
+	
+	<div style="margin-top:60px;">
+		<?php echo $content ?>
+	</div>
 </body>
 </html>

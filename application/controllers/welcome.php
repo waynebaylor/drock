@@ -16,7 +16,8 @@ class Welcome extends Auth_controller
 	
 		$content = $this->load->view('welcome_view', array(
 			'user' => $user,
-			'workouts_iter' => $workouts_iter
+			'workouts_iter' => $workouts_iter,
+			'success_message' => $this->session->flashdata('success_message')
 		), TRUE);
 			
 		$this->load->view('base_user_view', array(

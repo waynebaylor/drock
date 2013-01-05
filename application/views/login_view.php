@@ -3,7 +3,7 @@
 
 form {
 	width: 350px;
-	margin: 100px auto;
+	margin: 50px auto;
 }
 
 h1 {

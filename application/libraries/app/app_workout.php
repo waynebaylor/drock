@@ -27,4 +27,18 @@ class App_workout
 		
 		return $this->workout_model->insert($params);
 	}
+	
+	/**
+	 * @param array $params [user_id, id]
+	 */
+	public function delete($params) {
+		$this->workout_model->delete($params);
+	}
+	
+	/**
+	 * @param array $params [user_id, id]
+	 */
+	public function undelete($params) {
+		$this->workout_model->undelete($params);
+	}
 }
