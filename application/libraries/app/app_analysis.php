@@ -22,7 +22,10 @@ class App_analysis
 				$workout_data[$name] = array();
 			}
 			// format is: [milliseconds, decimal number]
-			$workout_data[$name][] = array(strtotime($r['tmstmp'])*1000, doubleval($r['weight'])); 
+			$r['x'] = strtotime($r['tmstmp'])*1000;
+			$r['y'] = doubleval($r['weight']);
+			
+			$workout_data[$name][] = $r;
 		}
 		
 		return $workout_data;

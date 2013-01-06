@@ -49,6 +49,17 @@
 					line: {
 						color: "#2aa198"
 					}
+				},
+				tooltip: {
+					formatter: function() {
+						
+						return [
+							"<strong>Date:</strong> "+this.point.tmstmp.slice(0, 10),
+							"<strong>Weight:</strong> "+this.point.weight+" lbs",
+							"<strong>Sets:</strong> "+this.point.sets,
+							"<strong>Reps:</strong> "+this.point.reps
+						].join("<br>");
+					}
 				}
 			});
 		}
