@@ -174,5 +174,33 @@ class Workout_model extends CI_Model
 		
 		return $this->pdo_db->query_all($sql, $params);
 	}
+	
+	/**
+	 * @param array $user [id]
+	 */
+	public function find_workout_data_by_user($user) {
+		$sql = '
+			SELECT
+				id,
+				name,
+				sets,
+				reps,
+				weight,
+				tmstmp
+			FROM
+				Workout
+			WHERE
+				user_id = :user_id
+			AND
+				status IS NULL
+			ORDER BY
+				name,
+				tmstmp
+		';
+		
+		$params = array('user_id' => $user['id']);
+		
+		return $this->pdo_db->query_all($sql, $params);
+	}
 }
 

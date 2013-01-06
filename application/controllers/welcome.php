@@ -10,7 +10,6 @@ class Welcome extends Auth_controller
 	
 	public function index() {
 		$user = $this->session->userdata('user');
-		unset($user['password']);
 		
 		$workouts_iter = $this->workout_model->find_by_user($user);
 		$workout_names = $this->workout_model->find_names_by_user($user);
